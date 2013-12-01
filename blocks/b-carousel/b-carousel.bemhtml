@@ -1,0 +1,91 @@
+block b-carousel {
+
+    js: true
+
+    tag: 'div'
+
+    content: {
+
+        var content = [];
+
+        var container = [];
+        var controls = [];
+
+        this.ctx.content.forEach(function(item){
+
+            container.push({
+                elem: 'item',
+                content: [
+                    {
+                        elem: 'title',
+                        content: item.title
+                    },
+                    {
+                        elem: 'image',
+                        url: item.image
+                    },
+                    {
+                        elem: 'more',
+                        content: {
+                            block: 'link',
+                            mods: { inner: 'yes' },
+                            url: '#',
+                            content: [
+                                {
+                                    elem: 'inner',
+                                    content: item.title
+                                }
+                            ]
+                        }
+                    }
+                ]
+            });
+
+            container.push(' ');
+
+        });
+
+        content.push({
+            elem: 'container',
+            content: container
+        });
+
+        this.ctx.controls.forEach(function(control){
+            controls.push({
+                elem: 'control',
+                mods: {
+                    type: control.type
+                },
+                content: {
+                    block: 'control',
+                    content: control.content
+                }
+            });
+
+            controls.push(' ');
+        });
+
+        content.push({
+            elem: 'controls',
+            content: controls
+        });
+
+        return content;
+
+    }
+
+    elem container, tag: 'ul'
+    elem item, tag: 'li'
+
+    elem title, tag: 'b'
+    elem image {
+        tag: 'img'
+        attrs: {
+            src: this.ctx.url
+        }
+    }
+    elem more, tag: 'span'
+
+    elem controls, tag: 'ul'
+    elem control, tag: 'li'
+}

@@ -1,0 +1,54 @@
+.b-carousel
+{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border: 0;
+    width: 700px;
+    overflow: hidden;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease 0s;
+}
+.b-carousel ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.b-carousel .b-carousel__container
+{
+    width: 2000px;
+    transition: 0.6s;
+    transition-duration: 0.6s;
+    transform: translate(0px, 0px);
+}
+.b-carousel .b-carousel__container .b-carousel__item
+{
+    width: 210px;
+    float: left;
+    height: 250px;
+    overflow: hidden;
+    border: 1px solid red;
+}
+
+.b-carousel .b-carousel__controls
+{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.b-carousel .b-carousel__control
+{
+    cursor: pointer;
+}
+
+.b-carousel .b-carousel__control_type_prev
+{
+    float: left;
+}
+.b-carousel .b-carousel__control_type_next
+{
+    float: right;
+}
